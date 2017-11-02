@@ -1,0 +1,7 @@
+/*
+
+* nombre
+telefono
+status
+
+*/
