@@ -1,6 +1,8 @@
 
 /*
 
+Cliente:
+
 * rfc
 nombre
 direccion

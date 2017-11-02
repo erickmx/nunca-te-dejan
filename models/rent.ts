@@ -1,6 +1,8 @@
 
 /*
 
+Renta:
+
 * folio
 fecharenta
 fechadevolucion

@@ -1,6 +1,8 @@
 
 /*
 
+Empleado:
+
 * rfc
 nombre
 direccion

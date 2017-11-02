@@ -1,6 +1,8 @@
 
 /*
 
+Insumo:
+
 * idinsumo
 descripcion
 precio unitario
