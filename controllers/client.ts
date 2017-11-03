@@ -65,7 +65,7 @@ export const postClient = (req:Request, res:Response, next:NextFunction) : void 
   const newClient = new Client({
     rfc,
     name,
-    direccion,
+    direction,
     phoneNumber,
     email,
     vehiculosacargo,
