@@ -11,9 +11,11 @@ export const getAllClients = (req:Request, res:Response, next:NextFunction) : vo
 
 }
 
-export const getClientById = (req:Response, res:Response, next:NextFunction) : void => {
+export const getClientById = (req:Request, res:Response, next:NextFunction) : void => {
 
-  Client.findOne((err:any, client:Document) => {
+  const rfc = req.params.rfc
+
+  Client.findOne({rfc}, (err:any, client:Document) => {
 
     err? res.status(500).json({err}) : res.status(200).json(client)
 
@@ -83,7 +85,7 @@ export const postClient = (req:Request, res:Response, next:NextFunction) : void 
 
 export const updateClient = (req:Request, res:Response, next:NextFunction) : void => {
 
-  const rfc = req.body.rfc
+  const rfc = req.params.rfc
   Client.findOneAndUpdate({rfc}, req.body, (err:any, client) : void => {
 
     err? res.status(500).json({err}) : res.status(200).json({client})
@@ -92,9 +94,9 @@ export const updateClient = (req:Request, res:Response, next:NextFunction) : voi
 
 }
 
-export const removeClient = (req:Request, res:Response, next:NextFunction) : void => {
+export const deleteClient = (req:Request, res:Response, next:NextFunction) : void => {
 
-  const rfc = req.body.rfc
+  const rfc = req.params.rfc
   Client.findOneAndRemove({rfc}, (err:any, client) : void => {
 
     if (err) {
