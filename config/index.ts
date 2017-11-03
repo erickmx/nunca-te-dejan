@@ -8,7 +8,7 @@ const config = {
 
   // test enviroment
   test_env: 'test',
-  test_db: 'mongodb://localhost/blog-demo-test',
+  test_db: 'mongodb://localhost/nunca-te-dejan-test',
   test_port: 3001
 
 }

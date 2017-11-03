@@ -9,6 +9,7 @@ import * as cors from 'cors'
 
 // Made by me
 import config from './config'
+import routes from './routes'
 
 // init express
 const app = express()
@@ -28,7 +29,7 @@ app.use(helmet())
 app.use(cors())
 
 // router
-
+routes(app)
 
 // init server
 
