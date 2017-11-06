@@ -74,7 +74,7 @@ export const postEmployee = (req:Request, res:Response, next:NextFunction) :void
 
 }
 
-const updateEmployee = (req:Request, res:Response, next:NextFunction) : void => {
+export const updateEmployee = (req:Request, res:Response, next:NextFunction) : void => {
 
   const rfc = req.params.rfc
   Employee.findOneAndUpdate({rfc}, req.body)
@@ -83,7 +83,7 @@ const updateEmployee = (req:Request, res:Response, next:NextFunction) : void => 
 
 }
 
-const deleteEmployee = (req:Request, res:Response, next:NextFunction) : void => {
+export const deleteEmployee = (req:Request, res:Response, next:NextFunction) : void => {
 
   const rfc = req.params.rfc
   Employee.findOneAndRemove({rfc})
