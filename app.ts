@@ -6,6 +6,7 @@ import * as cookieParser from 'cookie-parser'
 import * as logger from 'morgan'
 import * as helmet from 'helmet'
 import * as cors from 'cors'
+import * as Promise from 'bluebird'
 
 // Made by me
 import config from './config'
@@ -15,7 +16,9 @@ import routes from './routes'
 const app = express()
 
 // init moongose
+// mongoose.Promise = Promise
 mongoose.connect(config.db, {
+  promiseLibrary: Promise,
   useMongoClient: true
 })
 

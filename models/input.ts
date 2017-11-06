@@ -37,3 +37,5 @@ const inputSchema = new Schema({
     default: 'agotado'
   }
 })
+
+export default model('Input', inputSchema)
