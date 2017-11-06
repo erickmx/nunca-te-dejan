@@ -1,12 +1,4 @@
-/*
-
-Chofer:
-
-* nombre
-telefono
-status
-
-*/
+/*  Chofer: */
 
 import { Schema, model } from 'mongoose'
 

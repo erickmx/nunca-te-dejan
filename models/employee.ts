@@ -1,16 +1,5 @@
 
-/*
-
-Empleado:
-
-* rfc
-nombre
-direccion
-telefono
-email
-status
-
-*/
+/*  Empleado: */
 
 import { Schema, model } from 'mongoose'
 import { validEmail } from './client'
