@@ -3,11 +3,9 @@ import { Request, Response, NextFunction } from 'express'
 
 export const getAllClients = (req:Request, res:Response, next:NextFunction) : void => {
 
-  Client.find((err:any, clients:Document[]) => {
-
-    err? res.status(500).json({err}) : res.status(200).json({clients})
-
-  })
+  Client.find()
+    .then(clients => res.status(200).json({clients}))
+    .catch(err => res.status(500).json({err}))
 
 }
 
@@ -15,11 +13,9 @@ export const getClientById = (req:Request, res:Response, next:NextFunction) : vo
 
   const rfc = req.params.rfc
 
-  Client.findOne({rfc}, (err:any, client:Document) => {
-
-    err? res.status(500).json({err}) : res.status(200).json(client)
-
-  })
+  Client.findOne({rfc})
+    .then(client => res.status(200).json(client))
+    .catch(err => res.status(500).json({err}))
 
 }
 
@@ -75,34 +71,26 @@ export const postClient = (req:Request, res:Response, next:NextFunction) : void 
     status
   })
 
-  newClient.save((err:any, client) : void => {
-
-    err? res.status(500).json({err}) : res.status(200).json({client})
-
-  })
+  newClient.save()
+    .then(client => res.status(200).json({client}))
+    .catch(err => res.status(500).json({err}))
 
 }
 
 export const updateClient = (req:Request, res:Response, next:NextFunction) : void => {
 
   const rfc = req.params.rfc
-  Client.findOneAndUpdate({rfc}, req.body, (err:any, client) : void => {
-
-    err? res.status(500).json({err}) : res.status(200).json({client})
-
-  })
+  Client.findOneAndUpdate({rfc}, req.body)
+    .then(client => res.status(200).json({client}))
+    .catch(err => res.status(500).json({err}))
 
 }
 
 export const deleteClient = (req:Request, res:Response, next:NextFunction) : void => {
 
   const rfc = req.params.rfc
-  Client.findOneAndRemove({rfc}, (err:any, client) : void => {
-
-    if (err) {
-      res.status(200).json({err})
-    }
-
-  })
+  Client.findOneAndRemove({rfc})
+    .then(client => res.status(200).json({client}))
+    .catch(err => res.status(500).json({err}))
 
 }

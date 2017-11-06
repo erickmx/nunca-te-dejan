@@ -45,10 +45,8 @@ const clientSchema = new Schema({
     type: Number
   },
   email: {
-    validate: {
-      validEmail,
-      message: 'email invalid'
-    }
+    type: String,
+    validate: validEmail
   },
   vehiculosacargo: {
     type: Number,

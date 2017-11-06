@@ -4,11 +4,9 @@ import { Request, Response, NextFunction } from 'express'
 // getAll
 export const getAllDrivers = (req:Request, res:Response, next:NextFunction) : void => {
 
-  Driver.find((err:any, drivers:Document[]) : void => {
-
-    err? res.status(500).json({err}) : res.status(200).json({drivers})
-
-  })
+  Driver.find()
+    .then(drivers => res.status(200).json({drivers}))
+    .catch(err => res.status(500).json({err}))
 
 }
 
@@ -16,11 +14,9 @@ export const getAllDrivers = (req:Request, res:Response, next:NextFunction) : vo
 export const getDriverByName = (req:Request, res:Response, next:NextFunction) : void => {
 
   const name = req.params.name
-  Driver.findOne({name}, (err:any, driver:Document) : void => {
-
-    err? res.status(500).json({err}) : res.status(200).json({driver})
-
-  })
+  Driver.findOne({name})
+    .then(driver => res.status(200).json({driver}))
+    .catch(err => res.status(500).json({err}))
 
 }
 
@@ -42,44 +38,35 @@ export const postDriver = (req:Request, res:Response, next:NextFunction) : void 
   }
 
   if (!status) {
-    // res.status(422).json({err: 'status is required'})
-    // return
     status = 'Libre'
   }
 
   const newDriver = new Driver({
     name,
-    phoneNumber
+    phoneNumber,
+    status
   })
 
-  newDriver.save((err:any, driver) : void => {
-
-    err? res.status(500).json({err}) : res.status(200).json({driver})
-
-  })
+  newDriver.save()
+    .then(driver => res.status(200).json({driver}))
+    .catch(err => res.status(500).json({err}))
 
 }
 
 export const updateDriver = (req:Request, res:Response, next:NextFunction) : void => {
 
   const name = req.params.name
-  Driver.findOneAndUpdate({name}, req.body , (err:any, driver) : void => {
-
-    err? res.status(500).json({err}) : res.status(200).json({driver})
-
-  })
+  Driver.findOneAndUpdate({name}, req.body)
+    .then(driver => res.status(200).json({driver}))
+    .catch(err => res.status(500).json({err}))
 
 }
 
 export const deleteDriver = (req:Request, res:Response, next:NextFunction) : void => {
 
   const name = req.params.name
-  Driver.findOneAndRemove({name}, (err:any, driver) : void => {
-
-    if (err) {
-      res.status(200).json({err})
-    }
-
-  })
+  Driver.findOneAndRemove({name})
+    .then(driver => res.status(200).json({driver}))
+    .catch(err => res.status(500).json({err}))
 
 }
