@@ -23,7 +23,7 @@ export const postClient = (req:Request, res:Response, next:NextFunction) : void 
 
   const rfc = req.body.rfc
   const name = req.body.name
-  const direction = req.body.direction
+  const addres = req.body.addres
   const phoneNumber = req.body.phoneNumber
   const email = req.body.email
   const vehiculosacargo = req.body.vehiculosacargo
@@ -63,7 +63,7 @@ export const postClient = (req:Request, res:Response, next:NextFunction) : void 
   const newClient = new Client({
     rfc,
     name,
-    direction,
+    addres,
     phoneNumber,
     email,
     vehiculosacargo,

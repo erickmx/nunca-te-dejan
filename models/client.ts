@@ -22,7 +22,7 @@ status
 
 import { Schema, model } from 'mongoose'
 
-const validEmail = (email:string):boolean => {
+export const validEmail = (email:string):boolean => {
   return /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(email)
 }
 
@@ -38,7 +38,7 @@ const clientSchema = new Schema({
     type: String,
     required: [true, 'name is required']
   },
-  direction: {
+  addres: {
     type: String
   },
   phoneNumber: {
