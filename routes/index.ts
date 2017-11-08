@@ -5,6 +5,7 @@ import DriversRoute from './driver'
 import ClientsRoute from './client'
 import EmployeRoute from './employee'
 import InputRoute from './input'
+import VehicleRoute from './vehicle'
 
 export default (app:Express) : void => {
 
@@ -14,6 +15,7 @@ export default (app:Express) : void => {
   apiRoutes.use('/client', ClientsRoute(app))
   apiRoutes.use('/employee', EmployeRoute(app))
   apiRoutes.use('/input', InputRoute(app))
+  apiRoutes.use('/vehicle', VehicleRoute(app))
 
   app.use('/api', apiRoutes)
 
