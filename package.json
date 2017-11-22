@@ -4,7 +4,7 @@
   "description": "backend de la administracion de un negocio de renta de limusinas",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha ./build/test",
     "build": "tsc",
     "start": "nodemon ./build/app.js"
   },
