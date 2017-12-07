@@ -4,9 +4,15 @@
   "description": "backend de la administracion de un negocio de renta de limusinas",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./build/test",
+    "pretest": "gulp",
+    "test": "mocha --reporter nyan ./build/test",
     "build": "tsc",
+    "prestart": "gulp",
     "start": "nodemon ./build/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erickmx/nunca-te-dejan.git"
   },
   "keywords": [
     "nodejs",
@@ -40,9 +46,16 @@
     "@types/node": "^8.0.47",
     "@types/supertest": "^2.0.4",
     "chai": "^4.1.2",
+    "gulp": "^3.9.1",
+    "gulp-apidoc": "^0.2.6",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-typescript": "^3.2.3",
+    "gulp-util": "^3.0.8",
     "mocha": "^4.0.1",
     "nodemon": "^1.12.1",
     "supertest": "^3.0.0",
-    "typescript": "^2.6.1"
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1",
+    "vinyl-fs": "^3.0.0"
   }
 }
